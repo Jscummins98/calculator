@@ -10,23 +10,10 @@ function operate(a, operator, b){
     if(operator === "/"){return divide(a, b);}
 }
 
-
-const operatorButtonList = document.querySelectorAll(".operator");
-
 const display = document.querySelector("#display");
-    let p = document.createElement('p');
-    display.appendChild(p);
+let p = document.createElement('p');
+display.appendChild(p);
 
-// function updateDisplay(){
-
-//     const buttonNodeList = document.querySelectorAll(".num");
-//     for(button of buttonNodeList){
-//         let number = button.textContent;
-//         button.addEventListener("click", () => {
-//             p.textContent += number;
-//         });
-//     }
-// }
 let firstNumber;
 let secondNumber;
 let operator;
@@ -58,6 +45,34 @@ for(button of allButtonsList){
             let answer = operate(+firstNumber, operator, +secondNumber);
             p.textContent = answer;
         });
+    }
+    else if(button.classList.contains("delete")){
+        button.addEventListener("click", () => {
+            if(p.textContent[p.textContent.length-1] === " "){ //allows the user to delete an operator
+                p.textContent = p.textContent.slice(0, -3);
+            }else{
+                p.textContent = p.textContent.slice(0, -1); //allows the user to delete a number
+            }
+        });
+    }
+    else if(button.classList.contains("clear")){
+        button.addEventListener("click", () => {
+            p.textContent = "";
+        });
+    }
+    else if(button.classList.contains("decimal")){
+        buttonContent = button.textContent;
+        button.addEventListener("click", () => {
+            if(!p.textContent.includes(".") && !p.textContent.includes(" ")){
+                p.textContent += buttonContent;
+            }else if(p.textContent.includes(" ")){
+                let equationArray = p.textContent.split(" ");
+                secondNumber = equationArray[2];
+                if(!secondNumber.includes(".")){
+                    p.textContent += buttonContent;
+                }
+            }
+        })
     }
 }
 
