@@ -1,0 +1,59 @@
+body{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(82, 190, 82);
+}
+.container{
+    height: 500px;
+    width: 400px;
+    background-color: rgb(224, 171, 70);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+/* Below: Styling for child elements of container */
+.display{
+    width: 375px;
+    height: 75px;
+    background-color: white;
+    margin-top: 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.display > p{
+    font-size: 40px;
+    margin-right: 10px;
+}
+.button-container{
+    display: flex;
+    margin-left: 13px;
+}
+.number-buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
+.operator-button{
+    margin-left: 50px;
+}
+/* Styling for buttons */
+button{
+    height: 75px;
+    width: 75px;
+    font-size: 30px;
+}
+.operator-button > button{
+    background-color: rgb(187, 185, 185);
+}
+.special-buttons{
+    width: 375px;
+    display: flex;
+    justify-content: space-between;
+}
+.special-buttons > button{
+    background-color: rgb(128, 128, 209);
+}
+
