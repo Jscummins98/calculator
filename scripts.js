@@ -33,6 +33,8 @@ for(button of allButtonsList){
             //The following if statement checks if the equation already has an operator. If not it adds one.
             if(!(p.textContent.includes("+") || p.textContent.includes("-") || p.textContent.includes("*") || p.textContent.includes("/"))){
                 p.textContent += ` ${buttonContent} `;
+            }else if(p.textContent[0] === "-" && !(p.textContent.substring(1).includes("+") || p.textContent.substring(1).includes("-") || p.textContent.substring(1).includes("*") || p.textContent.substring(1).includes("/"))){
+                p.textContent += ` ${buttonContent} `; //This if else statement allows operation on negative numbers
             }
         });
     }
